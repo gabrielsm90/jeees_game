@@ -1,4 +1,6 @@
+# -*- encoding:utf-8 -*-
 import pygame
+import sys
 
 from screen import MainScreen
 
@@ -11,7 +13,10 @@ def loop(f):
 
 @loop
 def core_function():
-    pass
+    #FIXME: Temos que pensar numa solução melhor para controlar os eventos
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            sys.exit()
 
 def main():
     main_screen = MainScreen(800, 600)
